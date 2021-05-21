@@ -4,6 +4,7 @@ HTHPluss::HTHPluss() {
 }
 
 HTHPluss::~HTHPluss() {
+	pelis.clear();
 }
 
 
@@ -11,33 +12,6 @@ void HTHPluss::addPelicula(Pelicula* peli) {
 	pelis.push_back(peli);
 }
 
-
-/*
-void HTHPluss::addVal(int valor) {
-
-	if(valoracion.empty()) {
-		valoracion.push_back(valor);
-	} else {
-		int cont=0;
-		for(int i=0 ; i< valoracion.size() ; i++) {
-			int aux=0;
-			aux = valoracion[i];
-			cout<<aux;
-			if(valor != aux ) {
-
-			} else {
-				cont++;
-			}
-		}
-		if(cont == 0) {
-			valoracion.push_back(valor);
-		} else {
-			cout<<"Ya existe esa valoracion:";
-		}
-	}
-
-}
-*/
 void HTHPluss::modificarPelicula(int opcion,int posicion) {
 	Pelicula* p;
 	srand(time(NULL));
@@ -119,29 +93,6 @@ void HTHPluss::enlistarPeliculas() {
 	}
 
 }
-/*
-void HTHPluss::enlistarGen() {
-	cout<<"\n====Los generos ====\n";
-	for(int i=0; i<gen.size(); i++) {
-		string aux="";
-		aux = gen[i];
-		cout << aux << endl;
-
-	}
-
-}
-
-void HTHPluss::enlistarValoracion() {
-	cout<<"\n====Las valoraciones ====\n";
-	for(int i=0; i<valoracion.size(); i++) {
-		int aux=0;
-		aux = valoracion[i];
-		cout << aux << endl;
-
-	}
-
-}
-*/
 
 void HTHPluss::listarPorGenero() {
 	Pelicula* p;
@@ -172,10 +123,6 @@ void HTHPluss::listarPorGenero() {
 			}
 		}
 	}
-
-
-
-
 
 	for(int i=0 ; i< gen.size() ; i++) {
 		string aux = "";
@@ -221,8 +168,7 @@ void HTHPluss::listarPorValoracion() {
 	}
 
 
-
-for(int i=0 ; i< valoracion.size() ; i++) {
+	for(int i=0 ; i< valoracion.size() ; i++) {
 		int aux = 0;
 		aux = valoracion[i];
 		for(int j=0 ; j < pelis.size() ; j++) {
@@ -235,4 +181,14 @@ for(int i=0 ; i< valoracion.size() ; i++) {
 
 }
 
-
+void HTHPluss::buscarpelis(string cadena) {
+	Pelicula* p;
+	for(int i=0 ; i < pelis.size() ; i++) {
+		p = pelis[i];
+		string aux ="";
+		aux = p->getTitulo();
+		if(aux.find(cadena)){
+			cout<< p->getTitulo()<< " - "<< p->getDirector() << " - " << p->getGenero() << " - " <<p->getValoracion()<<"/5"<<endl;
+		}
+	}
+}

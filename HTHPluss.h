@@ -1,9 +1,11 @@
 #ifndef HTHPLUSS_H
 #define HTHPLUSS_H
 #include <iostream>
+#include <string>
+#include <cstring>
 #include <random>
 #include <ctime>
-#include <string>
+#include <algorithm>
 using namespace std;
 #include "Pelicula.h"
 #include <vector>
@@ -21,7 +23,7 @@ class HTHPluss
 		void enlistarPeliculas();
 		void listarPorGenero();
 		void listarPorValoracion();
-		
+		void buscarpelis(string);
 		
 		
 	private:

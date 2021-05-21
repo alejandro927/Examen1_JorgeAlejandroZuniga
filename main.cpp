@@ -84,6 +84,14 @@ void eliminarPelicula(HTHPluss* plus) {
 	plus->eliminarPelicula(opcion);
 }
 
+void buscarPeli(HTHPluss* plus) {
+	cout<<"Ingrese la cadena por buscar:";
+	string cadena="";
+	getline(cin,cadena);
+	getline(cin,cadena);
+	plus->buscarpelis(cadena);
+}
+
 int main(int argc, char** argv) {
 	srand(time(NULL));
 	HTHPluss* plus = new HTHPluss();
@@ -119,6 +127,7 @@ int main(int argc, char** argv) {
 			break;
 
 			case 6: {
+				buscarPeli(plus);
 
 			}
 			break;
@@ -136,6 +145,6 @@ int main(int argc, char** argv) {
 		}
 	}
 
-
+	delete plus;
 	return 0;
 }
