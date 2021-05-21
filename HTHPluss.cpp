@@ -102,6 +102,7 @@ void HTHPluss::listarPorGenero() {
 		p = pelis[j];
 		string genero="";
 		genero = p->getGenero();
+		
 		if(gen.empty()) {
 			gen.push_back(genero);
 		} else {
@@ -118,10 +119,9 @@ void HTHPluss::listarPorGenero() {
 			}
 			if(cont == 0) {
 				gen.push_back(genero);
-			} else {
-
 			}
 		}
+		
 	}
 
 	for(int i=0 ; i< gen.size() ; i++) {
@@ -187,7 +187,7 @@ void HTHPluss::buscarpelis(string cadena) {
 		p = pelis[i];
 		string aux ="";
 		aux = p->getTitulo();
-		if(aux.find(cadena)){
+		if(aux.find(cadena) != string::npos){
 			cout<< p->getTitulo()<< " - "<< p->getDirector() << " - " << p->getGenero() << " - " <<p->getValoracion()<<"/5"<<endl;
 		}
 	}
