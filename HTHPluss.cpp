@@ -97,12 +97,13 @@ void HTHPluss::enlistarPeliculas() {
 void HTHPluss::listarPorGenero() {
 	Pelicula* p;
 	vector <string> gen;
-
+//fors para llenar la matriz
 	for(int j=0; j<pelis.size(); j++) {
 		p = pelis[j];
 		string genero="";
 		genero = p->getGenero();
 		
+		//valida si esta vacia
 		if(gen.empty()) {
 			gen.push_back(genero);
 		} else {
@@ -124,6 +125,7 @@ void HTHPluss::listarPorGenero() {
 		
 	}
 
+//imprimir por genero
 	for(int i=0 ; i< gen.size() ; i++) {
 		string aux = "";
 		aux = gen[i];
@@ -140,11 +142,12 @@ void HTHPluss::listarPorGenero() {
 void HTHPluss::listarPorValoracion() {
 	vector <int> valoracion;
 	Pelicula* p;
-
+//llena la matriz
 	for(int j=0; j<pelis.size(); j++) {
 		p = pelis[j];
 		int valor=0;
 		valor = p->getValoracion();
+		//valida si esta vacia
 		if(valoracion.empty()) {
 			valoracion.push_back(valor);
 		} else {
@@ -167,7 +170,7 @@ void HTHPluss::listarPorValoracion() {
 		}
 	}
 
-
+//imprime de acuerdo a la valoracion
 	for(int i=0 ; i< valoracion.size() ; i++) {
 		int aux = 0;
 		aux = valoracion[i];
@@ -183,10 +186,12 @@ void HTHPluss::listarPorValoracion() {
 
 void HTHPluss::buscarpelis(string cadena) {
 	Pelicula* p;
+	//va encontrando las pelis
 	for(int i=0 ; i < pelis.size() ; i++) {
 		p = pelis[i];
 		string aux ="";
 		aux = p->getTitulo();
+		//valida  si al;guna pelicula comple con la cadena solicitada
 		if(aux.find(cadena) != string::npos){
 			cout<< p->getTitulo()<< " - "<< p->getDirector() << " - " << p->getGenero() << " - " <<p->getValoracion()<<"/5"<<endl;
 		}
