@@ -13,20 +13,20 @@ class HTHPluss
 		HTHPluss();
 		~HTHPluss();
 		void addPelicula(Pelicula*);
-		void addVal(int);
-		void addGen(string);
+		
 		void modificarPelicula(int,int);
+		
 		void eliminarPelicula(int);
+		
 		void enlistarPeliculas();
-		void enlistarGen();
-		void enlistarValoracion();
+		void listarPorGenero();
+		void listarPorValoracion();
 		
 		
 		
 	private:
 		vector <Pelicula*> pelis;
-		vector <string> gen;
-		vector <int> valoracion;
+		
 };
 
 #endif

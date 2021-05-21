@@ -15,10 +15,10 @@ int miniMenu() {
 	cout<<"Elija su opcion:\n";
 	cin>>opcion;
 	cout<<endl;
-	while(opcion<1 || opcion >4){
+	while(opcion<1 || opcion >4) {
 		cout<<"Numero ingresado no es valido ingrese nuevamente:";
 		cin>>opcion;
-		
+
 	}
 	return opcion;
 }
@@ -37,10 +37,10 @@ int menu() {
 	cout<<"Elija su opcion:\n";
 	cin>>opcion;
 	cout<<endl;
-	while(opcion<1 || opcion >8){
+	while(opcion<1 || opcion >8) {
 		cout<<"Numero ingresado no es valido ingrese nuevamente:";
 		cin>>opcion;
-		
+
 	}
 	return opcion;
 }
@@ -57,8 +57,6 @@ void agregarPelicula(HTHPluss* plus) {
 	getline(cin,genero);
 	valoracion = 1 + rand() % 5;
 	cout<<"\nLa valoracion es:"<<valoracion;
-	plus->addGen(genero);
-	plus->addVal(valoracion);
 	plus->addPelicula(new Pelicula(titulo,director,genero,valoracion));
 }
 
@@ -68,19 +66,17 @@ void modificarPelicula(HTHPluss* plus) {
 	int posicion;
 	cout<<"Ingrese la pelicula que desee modificar:";
 	cin>>posicion;
-	while(posicion < 0 )
-	{
+	while(posicion < 0 ) {
 		cout<<"No se aceptan numeros negativos ingrese nuevamente:";
 		cin>>posicion;
 	}
 	opcion = miniMenu();
 	plus->modificarPelicula(opcion,posicion);
-	
+
 }
 
 
-void eliminarPelicula(HTHPluss* plus)
-{
+void eliminarPelicula(HTHPluss* plus) {
 	plus->enlistarPeliculas();
 	int opcion;
 	cout<<"Ingrese la pelicula que desee eliminar:";
@@ -113,31 +109,23 @@ int main(int argc, char** argv) {
 
 			case 4: {
 				plus->enlistarPeliculas();
-				cout<<endl;
-				plus->enlistarGen();
-				cout<<endl;
-				plus->enlistarValoracion();
 			}
 			break;
 
 			case 5: {
-
-
-
+				cout<<"Imprimir peliculas por genero:"<<endl;
+				plus->listarPorGenero();
 			}
 			break;
 
 			case 6: {
 
-
-
 			}
 			break;
 
 			case 7: {
-
-
-
+				cout<<"Imprimir peliculas por valoracion:"<<endl;
+				plus->listarPorValoracion();
 			}
 			break;
 

@@ -11,31 +11,8 @@ void HTHPluss::addPelicula(Pelicula* peli) {
 	pelis.push_back(peli);
 }
 
-void HTHPluss::addGen(string genero) {
 
-	if(gen.empty()) {
-		gen.push_back(genero);
-	} else {
-		int cont=0;
-		for(int i=0 ; i< gen.size() ; i++) {
-			string aux="";
-			aux = gen[i];
-			cout<<aux;
-			if(genero != aux ) {
-
-			} else {
-				cont++;
-			}
-		}
-		if(cont == 0) {
-			gen.push_back(genero);
-		} else {
-			cout<<"Ya existe ese genero:";
-		}
-	}
-	
-}
-
+/*
 void HTHPluss::addVal(int valor) {
 
 	if(valoracion.empty()) {
@@ -58,9 +35,9 @@ void HTHPluss::addVal(int valor) {
 			cout<<"Ya existe esa valoracion:";
 		}
 	}
-	
-}
 
+}
+*/
 void HTHPluss::modificarPelicula(int opcion,int posicion) {
 	Pelicula* p;
 	srand(time(NULL));
@@ -138,11 +115,11 @@ void HTHPluss::enlistarPeliculas() {
 	cout<<"====Las Peliculas====\n";
 	for(int i=0; i<pelis.size(); i++) {
 		p = pelis[i];
-		cout<< i <<") "<< p->getTitulo()<< ", "<< p->getDirector() << ", " << p->getGenero() << ", " <<p->getValoracion()<<"/5"<<endl;
+		cout<< i <<") "<< p->getTitulo()<< " - "<< p->getDirector() << " - " << p->getGenero() << " - " << p->getValoracion() << "/5" <<endl;
 	}
 
 }
-
+/*
 void HTHPluss::enlistarGen() {
 	cout<<"\n====Los generos ====\n";
 	for(int i=0; i<gen.size(); i++) {
@@ -164,4 +141,98 @@ void HTHPluss::enlistarValoracion() {
 	}
 
 }
+*/
+
+void HTHPluss::listarPorGenero() {
+	Pelicula* p;
+	vector <string> gen;
+
+	for(int j=0; j<pelis.size(); j++) {
+		p = pelis[j];
+		string genero="";
+		genero = p->getGenero();
+		if(gen.empty()) {
+			gen.push_back(genero);
+		} else {
+			int cont=0;
+			for(int i=0 ; i< gen.size() ; i++) {
+				string aux="";
+				aux = gen[i];
+
+				if(genero != aux ) {
+
+				} else {
+					cont++;
+				}
+			}
+			if(cont == 0) {
+				gen.push_back(genero);
+			} else {
+
+			}
+		}
+	}
+
+
+
+
+
+	for(int i=0 ; i< gen.size() ; i++) {
+		string aux = "";
+		aux = gen[i];
+		cout<< aux<<": "<<endl;
+		for(int j=0 ; j < pelis.size() ; j++) {
+			p=pelis[j];
+			if(aux == p->getGenero()) {
+				cout<< p->getTitulo()<< " - "<< p->getDirector() << " - " <<p->getValoracion()<<"/5"<<endl;
+			}
+		}
+	}
+}
+
+void HTHPluss::listarPorValoracion() {
+	vector <int> valoracion;
+	Pelicula* p;
+
+	for(int j=0; j<pelis.size(); j++) {
+		p = pelis[j];
+		int valor=0;
+		valor = p->getValoracion();
+		if(valoracion.empty()) {
+			valoracion.push_back(valor);
+		} else {
+			int cont=0;
+			for(int i=0 ; i< valoracion.size() ; i++) {
+				int aux=0;
+				aux = valoracion[i];
+
+				if(valor != aux ) {
+
+				} else {
+					cont++;
+				}
+			}
+			if(cont == 0) {
+				valoracion.push_back(valor);
+			} else {
+
+			}
+		}
+	}
+
+
+
+for(int i=0 ; i< valoracion.size() ; i++) {
+		int aux = 0;
+		aux = valoracion[i];
+		for(int j=0 ; j < pelis.size() ; j++) {
+			p=pelis[j];
+			if(aux == p->getValoracion()) {
+				cout<< p->getTitulo()<< " - "<< p->getDirector() << " - " << p->getGenero() << " - " <<p->getValoracion()<<"/5"<<endl;
+			}
+		}
+	}
+
+}
+
 
