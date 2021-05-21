@@ -11,7 +11,7 @@ Pelicula::Pelicula(string tit,string direc,string gen,int val)
  	this->genero = gen; 
  	this->valoracion = val; 
 }
-
+//sets
  void Pelicula::setTitulo(string tit)//1
  {
  	this->titulo = tit; 
@@ -31,7 +31,7 @@ Pelicula::Pelicula(string tit,string direc,string gen,int val)
  {
  	this->valoracion = val; 
  };
- 
+ //getss
  string Pelicula::getTitulo(){
  	return this->titulo; 
  };
